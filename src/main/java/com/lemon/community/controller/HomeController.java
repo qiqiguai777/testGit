@@ -36,6 +36,7 @@ public class HomeController {
     public String getIndexPage(Model model, Page page){
         //将话题总数量添加到页面实体中用于分页
         page.setRows(discussPostService.countPosts(0));
+        System.out.println(page.getRows());
         //设置路径
         page.setPath("/index");
         List<DiscussPost> list = discussPostService.getDiscussPost(0,page.getOffset(),page.getLimit());
