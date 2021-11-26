@@ -38,6 +38,7 @@ public class HomeController {
         page.setRows(discussPostService.countPosts(0));
         //设置路径
         page.setPath("/index");
+        //
         List<DiscussPost> list = discussPostService.getDiscussPost(0,page.getOffset(),page.getLimit());
         List<Map<String,Object>> discussPosts = new ArrayList<>();
         if(list != null) {
