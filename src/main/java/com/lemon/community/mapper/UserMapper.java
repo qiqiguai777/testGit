@@ -18,4 +18,32 @@ public interface UserMapper {
      * @return 用户数据
      */
     User selectUserById(@Param("id") Integer id);
+
+    /**
+     * 根据用户名查找用户
+     * @param username
+     * @return
+     */
+    User selectUserByUsername(String username);
+
+    /**
+     * 根据邮箱查找用户
+     * @param email
+     * @return
+     */
+    User selectUserByEmail(String email);
+
+    /**
+     * 插入一条用户信息
+     * @param user
+     */
+    int insertUser(User user);
+
+    /**
+     * 更新用户的激活状态
+     * @param id
+     * @param status
+     * @return
+     */
+    int updateStatus(int id , int status);
 }

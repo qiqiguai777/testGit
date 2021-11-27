@@ -12,9 +12,31 @@
     <sql id="selectFields">
         id, username, password, salt, email, type, status, activation_code, header_url, create_time
     </sql>
+    <sql id="insertFields">
+        username, password, salt, email, type, status, activation_code, header_url, create_time
+    </sql>
     <select id="selectUserById" resultMap="userEntityMap">
         SELECT <include refid="selectFields"></include>
         FROM user
         WHERE id = #{id}
     </select>
+    <select id="selectUserByUsername" resultMap="userEntityMap">
+        SELECT <include refid="selectFields"></include>
+        FROM user
+        WHERE username = #{username}
+    </select>
+    <select id="selectUserByEmail" resultMap="userEntityMap">
+        SELECT <include refid="selectFields"></include>
+        FROM user
+        WHERE email = #{email}
+    </select>
+    <insert id="insertUser" parameterType="User">
+        INSERT INTO user
+        (<include refid="insertFields"></include>)
+        values(#{username}, #{password}, #{salt}, #{email}, #{type}, #{status}, #{activationCode}, #{headerUrl}, #{createdTime})
+    </insert>
+    <update id="updateStatus">
+        UPDATE user SET status = #{status}
+        WHERE id = #{id}
+    </update>
 </mapper>
