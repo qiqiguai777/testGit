@@ -30,4 +30,36 @@ public interface UserService {
      * @return
      */
     int activation(int userId, String code);
+
+    /**
+     * 登录
+     * @param username
+     * @param password
+     * @param expiredSeconds
+     * @return
+     */
+    Map<String, Object> login(String username, String password, int expiredSeconds);
+
+    /**
+     * 退出登录
+     * @param ticket
+     * @return
+     */
+    int logout(String ticket);
+
+    /**
+     * 更新头像
+     * @param id
+     * @param headerUrl
+     * @return
+     */
+    int updateHeader(Integer id, String headerUrl);
+
+    /**
+     * 修改密码
+     * @param oldPassword
+     * @param newPassword
+     * @return
+     */
+    Map<String, Object> changePassword(String oldPassword, String newPassword);
 }

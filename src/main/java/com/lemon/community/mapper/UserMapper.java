@@ -46,4 +46,20 @@ public interface UserMapper {
      * @return
      */
     int updateStatus(int id , int status);
+
+    /**
+     * 根据id更新用户头像路径
+     * @param id
+     * @param headerUrl
+     * @return
+     */
+    int updateHeader(Integer id, String headerUrl);
+
+    /**
+     * 根据id更新用户的密码
+     * @param id
+     * @param password
+     * @return
+     */
+    int updatePassword(Integer id, String password);
 }

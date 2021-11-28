@@ -39,4 +39,12 @@
         UPDATE user SET status = #{status}
         WHERE id = #{id}
     </update>
+    <update id="updateHeader">
+        UPDATE user SET header_url = #{headerUrl}
+        WHERE id = #{id}
+    </update>
+    <update id="updatePassword">
+        UPDATE user SET password = #{password}
+        WHERE id = #{id}
+    </update>
 </mapper>

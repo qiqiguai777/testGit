@@ -6,7 +6,7 @@ spring:
   datasource:
       username: root
       password: 123456
-      url: jdbc:mysql://localhost:3306/community?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+      url: jdbc:mysql://localhost:3306/community?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=GMT%2B8
       driver-class-name: com.mysql.cj.jdbc.Driver
   mail:
     username: 18192645021@163.com
@@ -19,15 +19,19 @@ spring:
         smtp:
           ssl:
             enable: true
+  # ThymeleafProperties
+  thymeleaf:
+    cache: false
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.lemon.community.bean
   configuration:
     use-generated-keys: true
-#    map-underscore-to-camel-case: true
+    map-underscore-to-camel-case: true
 community:
   path:
     domain: http://localhost:8080
+    upload: d:/java/projects/community/upload
 #thymeleaf:
 #    prefix: classpath:/templates/  #prefix：指定模板所在的目录
 #    check-template-location: true  #check-tempate-location: 检查模板路径是否存在
