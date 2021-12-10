@@ -6,6 +6,9 @@
     <sql id="selectFields">
         id, user_id, title, content, type, status, create_time, comment_count, score
     </sql>
+    <sql id="insertFields">
+        user_id, title, content, type, status, create_time, comment_count, score
+    </sql>
     <resultMap id="discussPostEntityMap" type="com.lemon.community.bean.DiscussPost">
         <id column="id" property="id"></id>
         <result column="user_id" property="userId"></result>
@@ -32,4 +35,17 @@
             AND user_id = #{userId}
         </if>
     </select>
+    <insert id="insertDiscussPost" parameterType="DiscussPost">
+        INSERT INTO discuss_post(<include refid="insertFields"></include>)
+        VALUES(#{userId},#{title},#{content},#{type},#{status},#{createdTime},#{commentCount},#{score})
+    </insert>
+    <select id="selectDiscussPostById" parameterType="java.lang.Integer" resultMap="discussPostEntityMap">
+        SELECT <include refid="selectFields"></include> FROM discuss_post
+        WHERE id=#{id}
+    </select>
+    <update id="updateCommentCount">
+        UPDATE discuss_post
+        SET comment_count=#{commentCount}
+        WHERE id=#{id}
+    </update>
 </mapper>

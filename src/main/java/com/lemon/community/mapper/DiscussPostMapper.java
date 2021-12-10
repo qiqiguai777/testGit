@@ -29,4 +29,26 @@ public interface DiscussPostMapper {
      * @return 话题数量
      */
     Integer discussPostsCount(@Param("userId") int userId);
+
+    /**
+     * 插入一条话题数据
+     * @param discussPost
+     * @return
+     */
+    Integer insertDiscussPost(DiscussPost discussPost);
+
+    /**
+     * 根据id查询话题
+     * @param id
+     * @return
+     */
+    DiscussPost selectDiscussPostById(Integer id);
+
+    /**
+     * 更新评论数量
+     * @param id
+     * @param commentCount
+     * @return
+     */
+    Integer updateCommentCount(Integer id, Integer commentCount);
 }

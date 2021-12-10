@@ -2,6 +2,9 @@ package com.lemon.community.util;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.DigestUtils;
+
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.UUID;
 
 /**
@@ -9,7 +12,7 @@ import java.util.UUID;
  * @ClassName CommunityUtil.java
  * @Description 自定义字符串工具类
  */
-public class CommunityUtil {
+public class CommunityUtil{
 
     /**
      * 生成随机字符串

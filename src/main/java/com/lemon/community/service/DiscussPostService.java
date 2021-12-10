@@ -25,4 +25,27 @@ public interface DiscussPostService {
      * @return 返回话题数
      */
     Integer countPosts(int userId);
+
+    /**
+     * 增加话题
+     * @param title
+     * @param content
+     * @return
+     */
+    Integer addDiscussPost(String title, String content);
+
+    /**
+     * 根据id查找话题
+     * @param id
+     * @return
+     */
+    DiscussPost findDiscussPostById(Integer id);
+
+    /**
+     * 更新评论数量
+     * @param id
+     * @param count
+     * @return
+     */
+    Integer updateCommentCount(Integer id, Integer count);
 }
